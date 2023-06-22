@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Grapple_raycast : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject indicate;
+    public Material rend;
     void Start()
     {
-        
+        rend = indicate.GetComponent<Renderer>().material;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(transform.position, fwd, 10))
+        {
+            rend.SetColor("_Color", Color.green);
+        }
+        else
+        {
+            rend.SetColor("_Color", Color.red);
+        }
     }
 }
