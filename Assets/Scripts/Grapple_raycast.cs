@@ -15,7 +15,7 @@ public class Grapple_raycast : MonoBehaviour
     void Update()
     {
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.position, fwd, 10))
+        if (Physics.Raycast(transform.position, fwd, 50))
         {
             rend.SetColor("_Color", Color.green);
         }
